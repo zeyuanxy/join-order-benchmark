@@ -1,6 +1,6 @@
-SELECT MIN(cn.name) AS producing_company,
-       MIN(miidx.info) AS rating,
-       MIN(t.title) AS movie_about_winning
+SELECT min(cn.name) AS producing_company,
+       min(miidx.info) AS rating,
+       min(t.title) AS movie_about_winning
 FROM company_name AS cn,
      company_type AS ct,
      info_type AS it,
@@ -16,8 +16,7 @@ WHERE cn.country_code ='[us]'
   AND it2.info ='release dates'
   AND kt.kind ='movie'
   AND t.title != ''
-  AND (t.title LIKE '%Champion%'
-       OR t.title LIKE '%Loser%')
+  AND ( t.title LIKE '%Champion%' OR t.title LIKE '%Loser%')
   AND mi.movie_id = t.id
   AND it2.id = mi.info_type_id
   AND kt.id = t.kind_id

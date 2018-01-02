@@ -1,5 +1,5 @@
-SELECT MIN(mi.info) AS budget,
-       MIN(t.title) AS unsuccsessful_movie
+SELECT min(mi.info) AS budget,
+       min(t.title) AS unsuccsessful_movie
 FROM company_name AS cn,
      company_type AS ct,
      info_type AS it1,
@@ -9,14 +9,12 @@ FROM company_name AS cn,
      movie_info_idx AS mi_idx,
      title AS t
 WHERE cn.country_code ='[us]'
-  AND ct.kind is not NULL
-  and (ct.kind ='production companies'
-       or ct.kind = 'distributors')
+  AND ct.kind IS NOT NULL
+  AND ( ct.kind ='production companies' OR ct.kind = 'distributors')
   AND it1.info ='budget'
   AND it2.info ='bottom 10 rank'
   AND t.production_year >2000
-  AND (t.title LIKE 'Birdemic%'
-       OR t.title LIKE '%Movie%')
+  AND ( t.title LIKE 'Birdemic%' OR t.title LIKE '%Movie%')
   AND t.id = mi.movie_id
   AND t.id = mi_idx.movie_id
   AND mi.info_type_id = it1.id

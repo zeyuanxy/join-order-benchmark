@@ -1,9 +1,9 @@
-SELECT MIN(t.title) AS movie_title
+SELECT min(t.title) AS movie_title
 FROM keyword AS k,
      movie_info AS mi,
      movie_keyword AS mk,
      title AS t
-WHERE k.keyword like '%sequel%'
+WHERE k.keyword LIKE '%sequel%'
   AND mi.info IN ('Bulgaria')
   AND t.production_year > 2010
   AND t.id = mi.movie_id

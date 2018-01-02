@@ -1,6 +1,6 @@
-SELECT MIN(k.keyword) AS movie_keyword,
-       MIN(n.name) AS actor_name,
-       MIN(t.title) AS marvel_movie
+SELECT min(k.keyword) AS movie_keyword,
+       min(n.name) AS actor_name,
+       min(t.title) AS marvel_movie
 FROM cast_info AS ci,
      keyword AS k,
      movie_keyword AS mk,

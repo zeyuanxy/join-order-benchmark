@@ -1,5 +1,5 @@
-SELECT MIN(mi_idx.info) AS rating,
-       MIN(t.title) AS western_dark_production
+SELECT min(mi_idx.info) AS rating,
+       min(t.title) AS western_dark_production
 FROM info_type AS it1,
      info_type AS it2,
      keyword AS k,
@@ -10,7 +10,7 @@ FROM info_type AS it1,
      title AS t
 WHERE it1.info = 'countries'
   AND it2.info = 'rating'
-  AND k.keyword in ('murder',
+  AND k.keyword IN ('murder',
                     'murder-in-title')
   AND kt.kind = 'movie'
   AND mi.info IN ('Sweden',
@@ -25,9 +25,7 @@ WHERE it1.info = 'countries'
                   'American')
   AND mi_idx.info > '6.0'
   AND t.production_year > 2010
-  and (t.title like '%murder%'
-       or t.title like '%Murder%'
-       or t.title like '%Mord%')
+  AND (t.title LIKE '%murder%'  OR t.title LIKE '%Murder%' OR t.title LIKE '%Mord%')
   AND kt.id = t.kind_id
   AND t.id = mi.movie_id
   AND t.id = mk.movie_id

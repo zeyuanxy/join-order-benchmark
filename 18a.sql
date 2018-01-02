@@ -1,6 +1,6 @@
-SELECT MIN(mi.info) AS movie_budget,
-       MIN(mi_idx.info) AS movie_votes,
-       MIN(t.title) AS movie_title
+SELECT min(mi.info) AS movie_budget,
+       min(mi_idx.info) AS movie_votes,
+       min(t.title) AS movie_title
 FROM cast_info AS ci,
      info_type AS it1,
      info_type AS it2,
@@ -8,12 +8,12 @@ FROM cast_info AS ci,
      movie_info_idx AS mi_idx,
      name AS n,
      title AS t
-WHERE ci.note in ('(producer)',
+WHERE ci.note IN ('(producer)',
                   '(executive producer)')
   AND it1.info = 'budget'
   AND it2.info = 'votes'
   AND n.gender = 'm'
-  and n.name like '%Tim%'
+  AND n.name LIKE '%Tim%'
   AND t.id = mi.movie_id
   AND t.id = mi_idx.movie_id
   AND t.id = ci.movie_id

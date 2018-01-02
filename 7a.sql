@@ -1,5 +1,5 @@
-SELECT MIN(n.name) AS of_person,
-       MIN(t.title) AS biography_movie
+SELECT min(n.name) AS of_person,
+       min(t.title) AS biography_movie
 FROM aka_name AS an,
      cast_info AS ci,
      info_type AS it,
@@ -12,9 +12,7 @@ WHERE an.name LIKE '%a%'
   AND it.info ='mini biography'
   AND lt.link ='features'
   AND n.name_pcode_cf BETWEEN 'A' AND 'F'
-  AND (n.gender='m'
-       OR (n.gender = 'f'
-           AND n.name LIKE 'B%'))
+  AND (n.gender='m' OR (n.gender = 'f' AND n.name LIKE 'B%'))
   AND pi.note ='Volker Boehm'
   AND t.production_year BETWEEN 1980 AND 1995
   AND n.id = an.person_id

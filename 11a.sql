@@ -1,6 +1,6 @@
-SELECT MIN(cn.name) AS from_company,
-       MIN(lt.link) AS movie_link_type,
-       MIN(t.title) AS non_polish_sequel_movie
+SELECT min(cn.name) AS from_company,
+       min(lt.link) AS movie_link_type,
+       min(t.title) AS non_polish_sequel_movie
 FROM company_name AS cn,
      company_type AS ct,
      keyword AS k,
@@ -10,8 +10,7 @@ FROM company_name AS cn,
      movie_link AS ml,
      title AS t
 WHERE cn.country_code !='[pl]'
-  AND (cn.name LIKE '%Film%'
-       OR cn.name LIKE '%Warner%')
+  AND ( cn.name LIKE '%Film%' OR cn.name LIKE '%Warner%')
   AND ct.kind ='production companies'
   AND k.keyword ='sequel'
   AND lt.link LIKE '%follow%'

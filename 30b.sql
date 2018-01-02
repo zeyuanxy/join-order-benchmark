@@ -1,7 +1,7 @@
-SELECT MIN(mi.info) AS movie_budget,
-       MIN(mi_idx.info) AS movie_votes,
-       MIN(n.name) AS writer,
-       MIN(t.title) AS complete_gore_movie
+SELECT min(mi.info) AS movie_budget,
+       min(mi_idx.info) AS movie_votes,
+       min(n.name) AS writer,
+       min(t.title) AS complete_gore_movie
 FROM complete_cast AS cc,
      comp_cast_type AS cct1,
      comp_cast_type AS cct2,
@@ -14,30 +14,28 @@ FROM complete_cast AS cc,
      movie_keyword AS mk,
      name AS n,
      title AS t
-WHERE cct1.kind in ('cast',
+WHERE cct1.kind IN ('cast',
                     'crew')
   AND cct2.kind ='complete+verified'
-  AND ci.note in ('(writer)',
+  AND ci.note IN ('(writer)',
                   '(head writer)',
                   '(written by)',
                   '(story)',
                   '(story editor)')
   AND it1.info = 'genres'
   AND it2.info = 'votes'
-  AND k.keyword in ('murder',
+  AND k.keyword IN ('murder',
                     'violence',
                     'blood',
                     'gore',
                     'death',
                     'female-nudity',
                     'hospital')
-  AND mi.info in ('Horror',
+  AND mi.info IN ('Horror',
                   'Thriller')
   AND n.gender = 'm'
   AND t.production_year > 2000
-  and (t.title like '%Freddy%'
-       or t.title like '%Jason%'
-       or t.title like 'Saw%')
+  AND (t.title LIKE '%Freddy%'       OR t.title LIKE '%Jason%'       OR t.title LIKE 'Saw%')
   AND t.id = mi.movie_id
   AND t.id = mi_idx.movie_id
   AND t.id = ci.movie_id

@@ -1,5 +1,5 @@
-SELECT MIN(n.name) AS cast_member,
-       MIN(t.title) AS complete_dynamic_hero_movie
+SELECT min(n.name) AS cast_member,
+       min(t.title) AS complete_dynamic_hero_movie
 FROM complete_cast AS cc,
      comp_cast_type AS cct1,
      comp_cast_type AS cct2,
@@ -11,11 +11,10 @@ FROM complete_cast AS cc,
      name AS n,
      title AS t
 WHERE cct1.kind = 'cast'
-  AND cct2.kind like '%complete%'
-  AND chn.name is not NULL
-  and (chn.name like '%man%'
-       or chn.name like '%Man%')
-  AND k.keyword in ('superhero',
+  AND cct2.kind LIKE '%complete%'
+  AND chn.name IS NOT NULL
+  AND (chn.name LIKE '%man%'       OR chn.name LIKE '%Man%')
+  AND k.keyword IN ('superhero',
                     'marvel-comics',
                     'based-on-comic',
                     'tv-special',

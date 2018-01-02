@@ -1,6 +1,6 @@
-SELECT MIN(cn.name) AS from_company,
-       MIN(mc.note) AS production_note,
-       MIN(t.title) AS movie_based_on_book
+SELECT min(cn.name) AS from_company,
+       min(mc.note) AS production_note,
+       min(t.title) AS movie_based_on_book
 FROM company_name AS cn,
      company_type AS ct,
      keyword AS k,
@@ -10,14 +10,13 @@ FROM company_name AS cn,
      movie_link AS ml,
      title AS t
 WHERE cn.country_code !='[pl]'
-  and (cn.name like '20th Century Fox%'
-       or cn.name like 'Twentieth Century Fox%')
+  AND ( cn.name LIKE '20th Century Fox%'  OR cn.name LIKE 'Twentieth Century Fox%')
   AND ct.kind != 'production companies'
-  and ct.kind is not NULL
-  AND k.keyword in ('sequel',
+  AND ct.kind IS NOT NULL
+  AND k.keyword IN ('sequel',
                     'revenge',
                     'based-on-novel')
-  AND mc.note is not NULL
+  AND mc.note IS NOT NULL
   AND t.production_year > 1950
   AND lt.id = ml.link_type_id
   AND ml.movie_id = t.id

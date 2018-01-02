@@ -1,5 +1,5 @@
-SELECT MIN(n.name) AS member_in_charnamed_american_movie,
-       MIN(n.name) AS a1
+SELECT min(n.name) AS member_in_charnamed_american_movie,
+       min(n.name) AS a1
 FROM cast_info AS ci,
      company_name AS cn,
      keyword AS k,

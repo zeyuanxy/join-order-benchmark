@@ -1,5 +1,5 @@
-SELECT MIN(an.name) AS acress_pseudonym,
-       MIN(t.title) AS japanese_anime_movie
+SELECT min(an.name) AS acress_pseudonym,
+       min(t.title) AS japanese_anime_movie
 FROM aka_name AS an,
      cast_info AS ci,
      company_name AS cn,
@@ -9,16 +9,14 @@ FROM aka_name AS an,
      title AS t
 WHERE ci.note ='(voice: English version)'
   AND cn.country_code ='[jp]'
-  AND mc.note like '%(Japan)%'
-  and mc.note not like '%(USA)%'
-  and (mc.note like '%(2006)%'
-       or mc.note like '%(2007)%')
-  AND n.name like '%Yo%'
-  and n.name not like '%Yu%'
+  AND mc.note LIKE '%(Japan)%'
+  AND mc.note NOT LIKE '%(USA)%'
+  AND (mc.note LIKE '%(2006)%'       OR mc.note LIKE '%(2007)%')
+  AND n.name LIKE '%Yo%'
+  AND n.name NOT LIKE '%Yu%'
   AND rt.role ='actress'
-  AND t.production_year between 2006 and 2007
-  and (t.title like 'One Piece%'
-       or t.title like 'Dragon Ball Z%')
+  AND t.production_year BETWEEN 2006 AND 2007
+  AND (t.title LIKE 'One Piece%'       OR t.title LIKE 'Dragon Ball Z%')
   AND an.person_id = n.id
   AND n.id = ci.person_id
   AND ci.movie_id = t.id

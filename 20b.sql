@@ -1,4 +1,4 @@
-SELECT MIN(t.title) AS complete_downey_ironman_movie
+SELECT min(t.title) AS complete_downey_ironman_movie
 FROM complete_cast AS cc,
      comp_cast_type AS cct1,
      comp_cast_type AS cct2,
@@ -10,11 +10,10 @@ FROM complete_cast AS cc,
      name AS n,
      title AS t
 WHERE cct1.kind = 'cast'
-  AND cct2.kind like '%complete%'
-  AND chn.name not like '%Sherlock%'
-  and (chn.name like '%Tony%Stark%'
-       or chn.name like '%Iron%Man%')
-  AND k.keyword in ('superhero',
+  AND cct2.kind LIKE '%complete%'
+  AND chn.name NOT LIKE '%Sherlock%'
+  AND (chn.name LIKE '%Tony%Stark%'       OR chn.name LIKE '%Iron%Man%')
+  AND k.keyword IN ('superhero',
                     'sequel',
                     'second-part',
                     'marvel-comics',

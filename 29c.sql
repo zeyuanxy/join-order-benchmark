@@ -1,6 +1,6 @@
-SELECT MIN(chn.name) AS voiced_char,
-       MIN(n.name) AS voicing_actress,
-       MIN(t.title) AS voiced_animation
+SELECT min(chn.name) AS voiced_char,
+       min(n.name) AS voicing_actress,
+       min(t.title) AS voiced_animation
 FROM aka_name AS an,
      complete_cast AS cc,
      comp_cast_type AS cct1,
@@ -20,7 +20,7 @@ FROM aka_name AS an,
      title AS t
 WHERE cct1.kind ='cast'
   AND cct2.kind ='complete+verified'
-  AND ci.note in ('(voice)',
+  AND ci.note IN ('(voice)',
                   '(voice: Japanese version)',
                   '(voice) (uncredited)',
                   '(voice: English version)')
@@ -28,13 +28,12 @@ WHERE cct1.kind ='cast'
   AND it.info = 'release dates'
   AND it3.info = 'trivia'
   AND k.keyword = 'computer-animation'
-  AND mi.info is not null
-  and (mi.info like 'Japan:%200%'
-       or mi.info like 'USA:%200%')
+  AND mi.info IS NOT NULL
+  AND (mi.info LIKE 'Japan:%200%'       OR mi.info LIKE 'USA:%200%')
   AND n.gender ='f'
-  and n.name like '%An%'
+  AND n.name LIKE '%An%'
   AND rt.role ='actress'
-  AND t.production_year between 2000 and 2010
+  AND t.production_year BETWEEN 2000 AND 2010
   AND t.id = mi.movie_id
   AND t.id = mc.movie_id
   AND t.id = ci.movie_id

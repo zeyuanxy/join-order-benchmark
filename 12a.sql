@@ -1,6 +1,6 @@
-SELECT MIN(cn.name) AS movie_company,
-       MIN(mi_idx.info) AS rating,
-       MIN(t.title) AS drama_horror_movie
+SELECT min(cn.name) AS movie_company,
+       min(mi_idx.info) AS rating,
+       min(t.title) AS drama_horror_movie
 FROM company_name AS cn,
      company_type AS ct,
      info_type AS it1,
@@ -13,10 +13,10 @@ WHERE cn.country_code = '[us]'
   AND ct.kind = 'production companies'
   AND it1.info = 'genres'
   AND it2.info = 'rating'
-  AND mi.info in ('Drama',
+  AND mi.info IN ('Drama',
                   'Horror')
   AND mi_idx.info > '8.0'
-  AND t.production_year between 2005 and 2008
+  AND t.production_year BETWEEN 2005 AND 2008
   AND t.id = mi.movie_id
   AND t.id = mi_idx.movie_id
   AND mi.info_type_id = it1.id

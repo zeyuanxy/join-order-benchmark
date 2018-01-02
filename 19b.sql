@@ -1,5 +1,5 @@
-SELECT MIN(n.name) AS voicing_actress,
-       MIN(t.title) AS kung_fu_panda
+SELECT min(n.name) AS voicing_actress,
+       min(t.title) AS kung_fu_panda
 FROM aka_name AS an,
      char_name AS chn,
      cast_info AS ci,
@@ -13,17 +13,15 @@ FROM aka_name AS an,
 WHERE ci.note = '(voice)'
   AND cn.country_code ='[us]'
   AND it.info = 'release dates'
-  AND mc.note like '%(200%)%'
-  and (mc.note like '%(USA)%'
-       or mc.note like '%(worldwide)%')
-  AND mi.info is not null
-  and (mi.info like 'Japan:%2007%'
-       or mi.info like 'USA:%2008%')
+  AND mc.note LIKE '%(200%)%'
+  AND (mc.note LIKE '%(USA)%'       OR mc.note LIKE '%(worldwide)%')
+  AND mi.info IS NOT NULL
+  AND (mi.info LIKE 'Japan:%2007%'       OR mi.info LIKE 'USA:%2008%')
   AND n.gender ='f'
-  and n.name like '%Angel%'
+  AND n.name LIKE '%Angel%'
   AND rt.role ='actress'
-  AND t.production_year between 2007 and 2008
-  and t.title like '%Kung%Fu%Panda%'
+  AND t.production_year BETWEEN 2007 AND 2008
+  AND t.title LIKE '%Kung%Fu%Panda%'
   AND t.id = mi.movie_id
   AND t.id = mc.movie_id
   AND t.id = ci.movie_id

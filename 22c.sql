@@ -1,6 +1,6 @@
-SELECT MIN(cn.name) AS movie_company,
-       MIN(mi_idx.info) AS rating,
-       MIN(t.title) AS western_violent_movie
+SELECT min(cn.name) AS movie_company,
+       min(mi_idx.info) AS rating,
+       min(t.title) AS western_violent_movie
 FROM company_name AS cn,
      company_type AS ct,
      info_type AS it1,
@@ -15,14 +15,14 @@ FROM company_name AS cn,
 WHERE cn.country_code != '[us]'
   AND it1.info = 'countries'
   AND it2.info = 'rating'
-  AND k.keyword in ('murder',
+  AND k.keyword IN ('murder',
                     'murder-in-title',
                     'blood',
                     'violence')
-  AND kt.kind in ('movie',
+  AND kt.kind IN ('movie',
                   'episode')
-  AND mc.note not like '%(USA)%'
-  and mc.note like '%(200%)%'
+  AND mc.note NOT LIKE '%(USA)%'
+  AND mc.note LIKE '%(200%)%'
   AND mi.info IN ('Sweden',
                   'Norway',
                   'Germany',

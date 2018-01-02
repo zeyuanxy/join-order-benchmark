@@ -1,5 +1,5 @@
-SELECT MIN(an1.name) AS costume_designer_pseudo,
-       MIN(t.title) AS movie_with_costumes
+SELECT min(an1.name) AS costume_designer_pseudo,
+       min(t.title) AS movie_with_costumes
 FROM aka_name AS an1,
      cast_info AS ci,
      company_name AS cn,

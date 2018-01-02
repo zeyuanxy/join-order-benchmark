@@ -1,7 +1,7 @@
-SELECT MIN(an.name) AS alternative_name,
-       MIN(chn.name) AS voiced_character,
-       MIN(n.name) AS voicing_actress,
-       MIN(t.title) AS american_movie
+SELECT min(an.name) AS alternative_name,
+       min(chn.name) AS voiced_character,
+       min(n.name) AS voicing_actress,
+       min(t.title) AS american_movie
 FROM aka_name AS an,
      char_name AS chn,
      cast_info AS ci,
@@ -12,13 +12,12 @@ FROM aka_name AS an,
      title AS t
 WHERE ci.note = '(voice)'
   AND cn.country_code ='[us]'
-  AND mc.note like '%(200%)%'
-  and (mc.note like '%(USA)%'
-       or mc.note like '%(worldwide)%')
+  AND mc.note LIKE '%(200%)%'
+  AND (mc.note LIKE '%(USA)%'       OR mc.note LIKE '%(worldwide)%')
   AND n.gender ='f'
-  and n.name like '%Angel%'
+  AND n.name LIKE '%Angel%'
   AND rt.role ='actress'
-  AND t.production_year between 2007 and 2010
+  AND t.production_year BETWEEN 2007 AND 2010
   AND ci.movie_id = t.id
   AND t.id = mc.movie_id
   AND ci.movie_id = mc.movie_id

@@ -1,5 +1,5 @@
-SELECT MIN(mi_idx.info) AS rating,
-       MIN(t.title) AS northern_dark_movie
+SELECT min(mi_idx.info) AS rating,
+       min(t.title) AS northern_dark_movie
 FROM info_type AS it1,
      info_type AS it2,
      keyword AS k,
@@ -10,7 +10,7 @@ FROM info_type AS it1,
      title AS t
 WHERE it1.info = 'countries'
   AND it2.info = 'rating'
-  AND k.keyword in ('murder',
+  AND k.keyword IN ('murder',
                     'murder-in-title',
                     'blood',
                     'violence')

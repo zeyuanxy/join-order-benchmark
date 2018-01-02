@@ -1,6 +1,6 @@
-SELECT MIN(mi.info) AS movie_budget,
-       MIN(mi_idx.info) AS movie_votes,
-       MIN(t.title) AS movie_title
+SELECT min(mi.info) AS movie_budget,
+       min(mi_idx.info) AS movie_votes,
+       min(t.title) AS movie_title
 FROM cast_info AS ci,
      info_type AS it1,
      info_type AS it2,
@@ -8,14 +8,14 @@ FROM cast_info AS ci,
      movie_info_idx AS mi_idx,
      name AS n,
      title AS t
-WHERE ci.note in ('(writer)',
+WHERE ci.note IN ('(writer)',
                   '(head writer)',
                   '(written by)',
                   '(story)',
                   '(story editor)')
   AND it1.info = 'genres'
   AND it2.info = 'votes'
-  AND mi.info in ('Horror',
+  AND mi.info IN ('Horror',
                   'Action',
                   'Sci-Fi',
                   'Thriller',

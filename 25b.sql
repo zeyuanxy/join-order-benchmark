@@ -1,7 +1,7 @@
-SELECT MIN(mi.info) AS movie_budget,
-       MIN(mi_idx.info) AS movie_votes,
-       MIN(n.name) AS male_writer,
-       MIN(t.title) AS violent_movie_title
+SELECT min(mi.info) AS movie_budget,
+       min(mi_idx.info) AS movie_votes,
+       min(n.name) AS male_writer,
+       min(t.title) AS violent_movie_title
 FROM cast_info AS ci,
      info_type AS it1,
      info_type AS it2,
@@ -11,14 +11,14 @@ FROM cast_info AS ci,
      movie_keyword AS mk,
      name AS n,
      title AS t
-WHERE ci.note in ('(writer)',
+WHERE ci.note IN ('(writer)',
                   '(head writer)',
                   '(written by)',
                   '(story)',
                   '(story editor)')
   AND it1.info = 'genres'
   AND it2.info = 'votes'
-  AND k.keyword in ('murder',
+  AND k.keyword IN ('murder',
                     'blood',
                     'gore',
                     'death',
@@ -26,7 +26,7 @@ WHERE ci.note in ('(writer)',
   AND mi.info = 'Horror'
   AND n.gender = 'm'
   AND t.production_year > 2010
-  AND t.title like 'Vampire%'
+  AND t.title LIKE 'Vampire%'
   AND t.id = mi.movie_id
   AND t.id = mi_idx.movie_id
   AND t.id = ci.movie_id

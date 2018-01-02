@@ -1,9 +1,9 @@
-SELECT MIN(cn1.name) AS first_company,
-       MIN(cn2.name) AS second_company,
-       MIN(mi_idx1.info) AS first_rating,
-       MIN(mi_idx2.info) AS second_rating,
-       MIN(t1.title) AS first_movie,
-       MIN(t2.title) AS second_movie
+SELECT min(cn1.name) AS first_company,
+       min(cn2.name) AS second_company,
+       min(mi_idx1.info) AS first_rating,
+       min(mi_idx2.info) AS second_rating,
+       min(t1.title) AS first_movie,
+       min(t2.title) AS second_movie
 FROM company_name AS cn1,
      company_name AS cn2,
      info_type AS it1,
@@ -21,13 +21,13 @@ FROM company_name AS cn1,
 WHERE cn1.country_code = '[us]'
   AND it1.info = 'rating'
   AND it2.info = 'rating'
-  AND kt1.kind in ('tv series')
-  AND kt2.kind in ('tv series')
-  AND lt.link in ('sequel',
+  AND kt1.kind IN ('tv series')
+  AND kt2.kind IN ('tv series')
+  AND lt.link IN ('sequel',
                   'follows',
                   'followed by')
   AND mi_idx2.info < '3.0'
-  AND t2.production_year between 2005 and 2008
+  AND t2.production_year BETWEEN 2005 AND 2008
   AND lt.id = ml.link_type_id
   AND t1.id = ml.movie_id
   AND t2.id = ml.linked_movie_id

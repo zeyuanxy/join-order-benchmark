@@ -1,6 +1,6 @@
-SELECT MIN(an.name) AS alternative_name,
-       MIN(chn.name) AS character_name,
-       MIN(t.title) AS movie
+SELECT min(an.name) AS alternative_name,
+       min(chn.name) AS character_name,
+       min(t.title) AS movie
 FROM aka_name AS an,
      char_name AS chn,
      cast_info AS ci,
@@ -9,18 +9,17 @@ FROM aka_name AS an,
      name AS n,
      role_type AS rt,
      title AS t
-WHERE ci.note in ('(voice)',
+WHERE ci.note IN ('(voice)',
                   '(voice: Japanese version)',
                   '(voice) (uncredited)',
                   '(voice: English version)')
   AND cn.country_code ='[us]'
-  AND mc.note is not NULL
-  and (mc.note like '%(USA)%'
-       or mc.note like '%(worldwide)%')
+  AND mc.note IS NOT NULL
+  AND (mc.note LIKE '%(USA)%'       OR mc.note LIKE '%(worldwide)%')
   AND n.gender ='f'
-  and n.name like '%Ang%'
+  AND n.name LIKE '%Ang%'
   AND rt.role ='actress'
-  AND t.production_year between 2005 and 2015
+  AND t.production_year BETWEEN 2005 AND 2015
   AND ci.movie_id = t.id
   AND t.id = mc.movie_id
   AND ci.movie_id = mc.movie_id

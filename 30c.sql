@@ -1,7 +1,7 @@
-SELECT MIN(mi.info) AS movie_budget,
-       MIN(mi_idx.info) AS movie_votes,
-       MIN(n.name) AS writer,
-       MIN(t.title) AS complete_violent_movie
+SELECT min(mi.info) AS movie_budget,
+       min(mi_idx.info) AS movie_votes,
+       min(n.name) AS writer,
+       min(t.title) AS complete_violent_movie
 FROM complete_cast AS cc,
      comp_cast_type AS cct1,
      comp_cast_type AS cct2,
@@ -16,21 +16,21 @@ FROM complete_cast AS cc,
      title AS t
 WHERE cct1.kind = 'cast'
   AND cct2.kind ='complete+verified'
-  AND ci.note in ('(writer)',
+  AND ci.note IN ('(writer)',
                   '(head writer)',
                   '(written by)',
                   '(story)',
                   '(story editor)')
   AND it1.info = 'genres'
   AND it2.info = 'votes'
-  AND k.keyword in ('murder',
+  AND k.keyword IN ('murder',
                     'violence',
                     'blood',
                     'gore',
                     'death',
                     'female-nudity',
                     'hospital')
-  AND mi.info in ('Horror',
+  AND mi.info IN ('Horror',
                   'Action',
                   'Sci-Fi',
                   'Thriller',

@@ -1,5 +1,5 @@
-SELECT MIN(chn.name) AS character,
-       MIN(t.title) AS movie_with_american_producer
+SELECT min(chn.name) AS character,
+       min(t.title) AS movie_with_american_producer
 FROM char_name AS chn,
      cast_info AS ci,
      company_name AS cn,
@@ -7,7 +7,7 @@ FROM char_name AS chn,
      movie_companies AS mc,
      role_type AS rt,
      title AS t
-WHERE ci.note like '%(producer)%'
+WHERE ci.note LIKE '%(producer)%'
   AND cn.country_code = '[us]'
   AND t.production_year > 1990
   AND t.id = mc.movie_id

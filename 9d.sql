@@ -1,7 +1,7 @@
-SELECT MIN(an.name) AS alternative_name,
-       MIN(chn.name) AS voiced_char_name,
-       MIN(n.name) AS voicing_actress,
-       MIN(t.title) AS american_movie
+SELECT min(an.name) AS alternative_name,
+       min(chn.name) AS voiced_char_name,
+       min(n.name) AS voicing_actress,
+       min(t.title) AS american_movie
 FROM aka_name AS an,
      char_name AS chn,
      cast_info AS ci,
@@ -10,7 +10,7 @@ FROM aka_name AS an,
      name AS n,
      role_type AS rt,
      title AS t
-WHERE ci.note in ('(voice)',
+WHERE ci.note IN ('(voice)',
                   '(voice: Japanese version)',
                   '(voice) (uncredited)',
                   '(voice: English version)')

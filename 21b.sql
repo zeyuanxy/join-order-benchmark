@@ -1,6 +1,6 @@
-SELECT MIN(cn.name) AS company_name,
-       MIN(lt.link) AS link_type,
-       MIN(t.title) AS german_follow_up
+SELECT min(cn.name) AS company_name,
+       min(lt.link) AS link_type,
+       min(t.title) AS german_follow_up
 FROM company_name AS cn,
      company_type AS ct,
      keyword AS k,
@@ -11,8 +11,7 @@ FROM company_name AS cn,
      movie_link AS ml,
      title AS t
 WHERE cn.country_code !='[pl]'
-  AND (cn.name LIKE '%Film%'
-       OR cn.name LIKE '%Warner%')
+  AND (cn.name LIKE '%Film%'       OR cn.name LIKE '%Warner%')
   AND ct.kind ='production companies'
   AND k.keyword ='sequel'
   AND lt.link LIKE '%follow%'
