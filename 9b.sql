@@ -12,12 +12,12 @@ FROM aka_name AS an,
      title AS t
 WHERE ci.note = '(voice)'
   AND cn.country_code ='[us]'
-  AND mc.note LIKE '%(200%)%'
-  AND (mc.note LIKE '%(USA)%'       OR mc.note LIKE '%(worldwide)%')
-  AND n.gender ='f'
-  AND n.name LIKE '%Angel%'
+  AND (mc.note LIKE '%(200%)%'
+  AND (mc.note LIKE '%(USA)%'       OR mc.note LIKE '%(worldwide)%'))
+  AND (n.gender ='f'
+  AND n.name LIKE '%Angel%')
   AND rt.role ='actress'
-  AND t.production_year BETWEEN 2007 AND 2010
+  AND (t.production_year BETWEEN 2007 AND 2010)
   AND ci.movie_id = t.id
   AND t.id = mc.movie_id
   AND ci.movie_id = mc.movie_id

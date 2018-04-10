@@ -9,14 +9,14 @@ FROM company_name AS cn,
      movie_keyword AS mk,
      movie_link AS ml,
      title AS t
-WHERE cn.country_code !='[pl]'
-  AND ( cn.name LIKE '20th Century Fox%'  OR cn.name LIKE 'Twentieth Century Fox%')
-  AND ct.kind != 'production companies'
-  AND ct.kind IS NOT NULL
+WHERE (cn.country_code !='[pl]'
+  AND ( cn.name LIKE '20th Century Fox%'  OR cn.name LIKE 'Twentieth Century Fox%'))
+  AND (ct.kind != 'production companies'
+  AND ct.kind IS NOT NULL)
   AND k.keyword IN ('sequel',
                     'revenge',
                     'based-on-novel')
-  AND mc.note IS NOT NULL
+  AND (mc.note IS NOT NULL)
   AND t.production_year > 1950
   AND lt.id = ml.link_type_id
   AND ml.movie_id = t.id

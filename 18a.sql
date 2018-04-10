@@ -12,8 +12,8 @@ WHERE ci.note IN ('(producer)',
                   '(executive producer)')
   AND it1.info = 'budget'
   AND it2.info = 'votes'
-  AND n.gender = 'm'
-  AND n.name LIKE '%Tim%'
+  AND (n.gender = 'm'
+  AND n.name LIKE '%Tim%')
   AND t.id = mi.movie_id
   AND t.id = mi_idx.movie_id
   AND t.id = ci.movie_id

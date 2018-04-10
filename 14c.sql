@@ -10,11 +10,11 @@ FROM info_type AS it1,
      title AS t
 WHERE it1.info = 'countries'
   AND it2.info = 'rating'
-  AND k.keyword IS NOT NULL
+  AND (k.keyword IS NOT NULL
   AND k.keyword IN ('murder',
                     'murder-in-title',
                     'blood',
-                    'violence')
+                    'violence'))
   AND kt.kind IN ('movie',
                   'episode')
   AND mi.info IN ('Sweden',

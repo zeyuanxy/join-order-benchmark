@@ -15,8 +15,8 @@ WHERE cn.country_code ='[us]'
   AND it.info ='rating'
   AND it2.info ='release dates'
   AND kt.kind ='movie'
-  AND t.title != ''
-  AND ( t.title LIKE 'Champion%'       OR t.title LIKE 'Loser%')
+  AND (t.title != ''
+  AND ( t.title LIKE 'Champion%'       OR t.title LIKE 'Loser%'))
   AND mi.movie_id = t.id
   AND it2.id = mi.info_type_id
   AND kt.id = t.kind_id

@@ -14,12 +14,12 @@ WHERE ci.note IN ('(voice)',
                   '(voice) (uncredited)',
                   '(voice: English version)')
   AND cn.country_code ='[us]'
-  AND mc.note IS NOT NULL
-  AND (mc.note LIKE '%(USA)%'       OR mc.note LIKE '%(worldwide)%')
-  AND n.gender ='f'
-  AND n.name LIKE '%Ang%'
+  AND (mc.note IS NOT NULL
+  AND (mc.note LIKE '%(USA)%'       OR mc.note LIKE '%(worldwide)%'))
+  AND (n.gender ='f'
+  AND n.name LIKE '%Ang%')
   AND rt.role ='actress'
-  AND t.production_year BETWEEN 2005 AND 2015
+  AND (t.production_year BETWEEN 2005 AND 2015)
   AND ci.movie_id = t.id
   AND t.id = mc.movie_id
   AND ci.movie_id = mc.movie_id
