@@ -12,9 +12,9 @@ FROM company_name AS cn,
 WHERE cn.country_code !='[pl]'
   AND (ct.kind != 'production companies'
   AND ct.kind IS NOT NULL)
-  AND k.keyword IN ('sequel',
+  AND (k.keyword IN ('sequel',
                     'revenge',
-                    'based-on-novel')
+                    'based-on-novel'))
   AND (mc.note IS NOT NULL)
   AND t.production_year > 1950
   AND lt.id = ml.link_type_id

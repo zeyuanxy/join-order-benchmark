@@ -13,10 +13,10 @@ WHERE cn.country_code = '[us]'
   AND ct.kind = 'production companies'
   AND it1.info = 'genres'
   AND it2.info = 'rating'
-  AND mi.info IN ('Drama',
+  AND (mi.info IN ('Drama',
                   'Horror',
                   'Western',
-                  'Family')
+                  'Family'))
   AND mi_idx.info > '7.0'
   AND (t.production_year BETWEEN 2000 AND 2010)
   AND t.id = mi.movie_id

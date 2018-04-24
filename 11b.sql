@@ -14,7 +14,7 @@ WHERE (cn.country_code !='[pl]'
   AND ct.kind ='production companies'
   AND k.keyword ='sequel'
   AND lt.link LIKE '%follows%'
-  AND mc.note IS NULL
+  AND (mc.note IS NULL)
   AND (t.production_year = 1998
   AND t.title LIKE '%Money%')
   AND lt.id = ml.link_type_id
