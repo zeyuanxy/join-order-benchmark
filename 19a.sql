@@ -18,7 +18,7 @@ WHERE ci.note IN ('(voice)',
   AND it.info = 'release dates'
   AND (mc.note IS NOT NULL
   AND (mc.note LIKE '%(USA)%'       OR mc.note LIKE '%(worldwide)%'))
-  AND )mi.info IS NOT NULL
+  AND (mi.info IS NOT NULL
   AND (mi.info LIKE 'Japan:%200%'   OR mi.info LIKE 'USA:%200%'))
   AND (n.gender ='f'
   AND n.name LIKE '%Ang%')

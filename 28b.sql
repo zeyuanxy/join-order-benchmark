@@ -31,8 +31,8 @@ WHERE cct1.kind = 'crew'
   AND (mi.info IN ('Sweden',
                   'Germany',
                   'Swedish',
-                  'German')
-  AND mi_idx.info > '6.5')
+                  'German'))
+  AND mi_idx.info > '6.5'
   AND t.production_year > 2005
   AND kt.id = t.kind_id
   AND t.id = mi.movie_id

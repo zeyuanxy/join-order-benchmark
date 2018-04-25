@@ -32,8 +32,8 @@ WHERE cn.country_code != '[us]'
                   'Norwegian',
                   'German',
                   'USA',
-                  'American')
-  AND mi_idx.info < '8.5')
+                  'American'))
+  AND mi_idx.info < '8.5'
   AND t.production_year > 2005
   AND kt.id = t.kind_id
   AND t.id = mi.movie_id

@@ -17,8 +17,8 @@ WHERE ci.note IN ('(writer)',
   AND it2.info = 'rating'
   AND (mi.info IN ('Horror',
                   'Thriller')
-  AND mi.note IS NULL
-  AND mi_idx.info > '8.0')
+  AND mi.note IS NULL)
+  AND mi_idx.info > '8.0'
   AND (n.gender IS NOT NULL
   AND n.gender = 'f')
   AND (t.production_year BETWEEN 2008 AND 2014)
