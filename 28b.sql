@@ -26,13 +26,13 @@ WHERE cct1.kind = 'crew'
                     'violence')
   AND kt.kind IN ('movie',
                   'episode')
-  AND mc.note NOT LIKE '%(USA)%'
-  AND mc.note LIKE '%(200%)%'
-  AND mi.info IN ('Sweden',
+  AND (mc.note NOT LIKE '%(USA)%'
+  AND mc.note LIKE '%(200%)%')
+  AND (mi.info IN ('Sweden',
                   'Germany',
                   'Swedish',
                   'German')
-  AND mi_idx.info > '6.5'
+  AND mi_idx.info > '6.5')
   AND t.production_year > 2005
   AND kt.id = t.kind_id
   AND t.id = mi.movie_id

@@ -11,16 +11,16 @@ FROM complete_cast AS cc,
      title AS t
 WHERE cct1.kind = 'cast'
   AND cct2.kind LIKE '%complete%'
-  AND chn.name NOT LIKE '%Sherlock%'
-  AND (chn.name LIKE '%Tony%Stark%'       OR chn.name LIKE '%Iron%Man%')
-  AND k.keyword IN ('superhero',
+  AND (chn.name NOT LIKE '%Sherlock%'
+  AND (chn.name LIKE '%Tony%Stark%'       OR chn.name LIKE '%Iron%Man%'))
+  AND (k.keyword IN ('superhero',
                     'sequel',
                     'second-part',
                     'marvel-comics',
                     'based-on-comic',
                     'tv-special',
                     'fight',
-                    'violence')
+                    'violence'))
   AND kt.kind = 'movie'
   AND n.name LIKE '%Downey%Robert%'
   AND t.production_year > 2000

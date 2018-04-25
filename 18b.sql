@@ -15,13 +15,13 @@ WHERE ci.note IN ('(writer)',
                   '(story editor)')
   AND it1.info = 'genres'
   AND it2.info = 'rating'
-  AND mi.info IN ('Horror',
+  AND (mi.info IN ('Horror',
                   'Thriller')
   AND mi.note IS NULL
-  AND mi_idx.info > '8.0'
-  AND n.gender IS NOT NULL
-  AND n.gender = 'f'
-  AND t.production_year BETWEEN 2008 AND 2014
+  AND mi_idx.info > '8.0')
+  AND (n.gender IS NOT NULL
+  AND n.gender = 'f')
+  AND (t.production_year BETWEEN 2008 AND 2014)
   AND t.id = mi.movie_id
   AND t.id = mi_idx.movie_id
   AND t.id = ci.movie_id

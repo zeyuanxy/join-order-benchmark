@@ -12,11 +12,11 @@ FROM aka_title AS at,
 WHERE cn.country_code = '[us]'
   AND cn.name = 'YouTube'
   AND it1.info = 'release dates'
-  AND mc.note LIKE '%(200%)%'
-  AND mc.note LIKE '%(worldwide)%'
-  AND mi.note LIKE '%internet%'
-  AND mi.info LIKE 'USA:% 200%'
-  AND t.production_year BETWEEN 2005 AND 2010
+  AND (mc.note LIKE '%(200%)%'
+  AND mc.note LIKE '%(worldwide)%')
+  AND (mi.note LIKE '%internet%'
+  AND mi.info LIKE 'USA:% 200%')
+  AND (t.production_year BETWEEN 2005 AND 2010)
   AND t.id = at.movie_id
   AND t.id = mi.movie_id
   AND t.id = mk.movie_id

@@ -21,9 +21,9 @@ WHERE cn.country_code != '[us]'
                     'violence')
   AND kt.kind IN ('movie',
                   'episode')
-  AND mc.note NOT LIKE '%(USA)%'
-  AND mc.note LIKE '%(200%)%'
-  AND mi.info IN ('Sweden',
+  AND (mc.note NOT LIKE '%(USA)%'
+  AND mc.note LIKE '%(200%)%')
+  AND (mi.info IN ('Sweden',
                   'Norway',
                   'Germany',
                   'Denmark',
@@ -33,7 +33,7 @@ WHERE cn.country_code != '[us]'
                   'German',
                   'USA',
                   'American')
-  AND mi_idx.info < '8.5'
+  AND mi_idx.info < '8.5')
   AND t.production_year > 2005
   AND kt.id = t.kind_id
   AND t.id = mi.movie_id

@@ -25,8 +25,8 @@ WHERE ci.note IN ('(writer)',
                     'female-nudity')
   AND mi.info = 'Horror'
   AND n.gender = 'm'
-  AND t.production_year > 2010
-  AND t.title LIKE 'Vampire%'
+  AND (t.production_year > 2010
+  AND t.title LIKE 'Vampire%')
   AND t.id = mi.movie_id
   AND t.id = mi_idx.movie_id
   AND t.id = ci.movie_id

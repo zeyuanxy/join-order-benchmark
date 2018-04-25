@@ -15,9 +15,9 @@ WHERE cct1.kind = 'complete+verified'
   AND cn.country_code = '[us]'
   AND it1.info = 'release dates'
   AND kt.kind IN ('movie')
-  AND mi.note LIKE '%internet%'
+  AND (mi.note LIKE '%internet%'
   AND mi.info IS NOT NULL
-  AND (mi.info LIKE 'USA:% 199%'       OR mi.info LIKE 'USA:% 200%')
+  AND (mi.info LIKE 'USA:% 199%'       OR mi.info LIKE 'USA:% 200%'))
   AND t.production_year > 2000
   AND kt.id = t.kind_id
   AND t.id = mi.movie_id

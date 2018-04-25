@@ -19,8 +19,8 @@ WHERE cct1.kind = 'complete+verified'
                     'alienation',
                     'dignity')
   AND kt.kind IN ('movie')
-  AND mi.note LIKE '%internet%'
-  AND mi.info LIKE 'USA:% 200%'
+  AND (mi.note LIKE '%internet%'
+  AND mi.info LIKE 'USA:% 200%')
   AND t.production_year > 2000
   AND kt.id = t.kind_id
   AND t.id = mi.movie_id

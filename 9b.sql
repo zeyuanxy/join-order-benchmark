@@ -14,7 +14,7 @@ WHERE ci.note = '(voice)'
   AND cn.country_code ='[us]'
   AND (mc.note LIKE '%(200%)%'
   AND (mc.note LIKE '%(USA)%'       OR mc.note LIKE '%(worldwide)%'))
-  AND (n.gender ='f'
+  AND (n.gender = 'f'
   AND n.name LIKE '%Angel%')
   AND rt.role ='actress'
   AND (t.production_year BETWEEN 2007 AND 2010)

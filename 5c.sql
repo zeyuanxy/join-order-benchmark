@@ -5,7 +5,7 @@ FROM company_type AS ct,
      movie_info AS mi,
      title AS t
 WHERE ct.kind = 'production companies'
-  AND mc.note NOT LIKE '%(TV)%'
+  AND (mc.note NOT LIKE '%(TV)%')
   AND mc.note LIKE '%(USA)%'
   AND mi.info IN ('Sweden',
                   'Norway',

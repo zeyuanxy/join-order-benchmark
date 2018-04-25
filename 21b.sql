@@ -10,15 +10,15 @@ FROM company_name AS cn,
      movie_keyword AS mk,
      movie_link AS ml,
      title AS t
-WHERE cn.country_code !='[pl]'
-  AND (cn.name LIKE '%Film%'       OR cn.name LIKE '%Warner%')
+WHERE (cn.country_code !='[pl]'
+  AND (cn.name LIKE '%Film%'       OR cn.name LIKE '%Warner%'))
   AND ct.kind ='production companies'
   AND k.keyword ='sequel'
   AND lt.link LIKE '%follow%'
   AND mc.note IS NULL
-  AND mi.info IN ('Germany',
-                  'German')
-  AND t.production_year BETWEEN 2000 AND 2010
+  AND (mi.info IN ('Germany',
+                  'German'))
+  AND (t.production_year BETWEEN 2000 AND 2010)
   AND lt.id = ml.link_type_id
   AND ml.movie_id = t.id
   AND t.id = mk.movie_id
